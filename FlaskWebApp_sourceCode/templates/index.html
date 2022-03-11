@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Santa Barbara House Price Estimator</title>
+    
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+  
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+
+<body style="background-color: teal;color:white">
+
+
+
+    <div class="hero">
+    </div>
+    
+    <div class="text-center">
+        
+        <h1 style="color:white"> Santa Barbara House Price Estimator </h1>
+                
+        <div class="row row-centered">
+        
+
+        <div class="column col-centered">
+        <br>  
+        
+        <input id="beds" size="20"
+            placeholder="Number of bedrooms"
+            class="black-input">
+        </br>
+
+           
+           
+        <br>   
+        <input id="baths" size="20"
+            placeholder="Number of baths"
+            class="black-input">
+        </br>
+
+            
+            
+        <br>  
+        <input id="sqft" size="20"
+            placeholder="House sqft"
+            class="black-input">   
+        </br>
+
+              
+              
+        <br>         
+        <input id="area" size="20"
+            placeholder="Lot area (acres)"
+            class="black-input">   
+        </br>     
+           
+        <br>         
+        <input id="age" size="20"
+            placeholder="Age of house (years)"
+            class="black-input">   
+        </br>          
+        
+        </div>
+        
+        <div class="column col-centered"  >
+        
+        <br>    
+        
+        <label style="color:black" for="garage">Does it have a garage:</label>
+        <select name="garage" id="garage" style="color:black">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        
+        </br>   
+        
+        <br>    
+        
+        <label style="color:black" for="fireplace">Does it have a fireplace:</label>
+        <select name="fireplace" id="fireplace" style="color:black">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        
+        </br>  
+                
+         <br>    
+        
+        <label style="color:black" for="ocean">Does it have ocean views:</label>
+        <select name="ocean" id="ocean" style="color:black">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        
+        </br> 
+                      
+        <br>        
+        <label style="color:black" for="mountain">Does it have mountain views:</label>
+        <select name="mountain" id="mountain" style="color:black">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        
+        </br>    
+        
+        <br>               
+        
+        <label style="color:black" for="pool">Does it have a pool:</label>
+        <select name="pool" id="pool" style="color:black">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        
+        </br>   
+        
+        </br>               
+        
+        <label style="color:black" for="upstairs">Does it have an upstairs:</label>
+        <select name="upstairs" id="upstairs" style="color:black">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        
+        </br>         
+               
+            
+        <br>    
+        
+        <label style="color:black" for="community">Is it in a special community:</label>
+        <select name="community" id="community" style="color:black">
+          <option value="montecito">Montecito</option>
+          <option value="isla vista">Isla Vista</option>
+          <option value="hope ranch">Hope Ranch</option>
+          <option value="none">None</option>
+        </select>
+        
+        </br>          
+        
+        <br>    
+        
+        <label style="color:black" for="zipcode">Choose zipcode:</label>
+        <select name="zipcode" id="zipcode" style="color:black">
+          <option value="93067">93067</option>
+          <option value="93101">93101</option>
+          <option value="93103">93103</option>
+          <option value="93105">93105</option>
+          <option value="93108">93108</option>
+          <option value="93109">93109</option>
+          <option value="93110">93110</option>
+          <option value="93111">93111</option>
+          <option value="93117">93117</option>
+        </select>
+        
+        </br>   
+        
+        </div>
+        </div>
+        
+        <h1 id="housePrice" style="background-color: #d9534f" class="text-center house-price"></h1>
+        
+        <br>
+            
+        <button id="button" type="button" class="btn btn-danger"
+            style="font-size:20px">Submit</button>
+            
+        </br>
+            
+            
+            
+            
+    </div>
+    
+
+
+</body>
+
+<script src="../static/js/script.js"></script>
+
+</html>

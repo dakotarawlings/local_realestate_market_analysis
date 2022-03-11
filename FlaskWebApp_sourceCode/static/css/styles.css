@@ -1,0 +1,67 @@
+.hero {
+
+    position: relative;
+    height: 240px;
+    padding: 1px;
+    margin-top: -2px;
+    margin-left: -10px;
+    background: teal;
+        background-image: url("../images/houses.png");
+        background-size: cover;
+    
+}
+
+.black-input {
+
+    background-color: white;
+    color: black;
+    border-color: black;
+    font-size: 16px;
+    
+
+}
+
+
+.housePrice {
+
+    font-size: 40px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background: red;
+
+
+}
+
+.text-center {
+
+    text-align: center;
+
+}
+
+
+.column {
+  float: center;
+  width: auto;
+}
+
+
+.row-centered {
+text-align:center;
+vertical-align: top;
+margin-right:auto;
+margin-left:auto;
+}
+.col-centered {
+
+padding-right: 100px;
+padding-left: 100px;
+
+display:inline-block;
+float:none;
+/* reset the text-align */
+text-align:left;
+vertical-align: top;
+/* inline-block space fix */
+margin-right:auto;
+margin-left:auto;
+}
