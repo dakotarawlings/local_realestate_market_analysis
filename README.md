@@ -4,7 +4,7 @@
   <img src="readme_pictures/homepage.png" width="600" >
 </p>
 
-### Web App Link: https://sb-house-price-estimator.herokuapp.com/
+### Web App Link: https://sb-house-price-prediction.herokuapp.com/
 
 ## Overview
 * Built a web scraper from scratch to scrape data from ~1500 single family homes that have been sold over the past 2 years in Santa Barbara from trulia.com
@@ -13,7 +13,7 @@
 * Implemented various feature engineering strategies such as scaling, normalization, transformation, one hot encoding, KNN imputation, etc
 * Optimized hyper parameters for linear, lasso, random forest, LightGBM, Catboost, and XGboost
 * Built a flask API endpoint for estimating a house price based on features
-* Wrote a web application in HTML, CSS, and JavaScript to display price prediction based on user input and hosted on Heroku: https://sb-house-price-estimator.herokuapp.com/
+* Wrote a web application in HTML, CSS, and JavaScript to display price prediction based on user input and hosted on Heroku: https://sb-house-price-prediction.herokuapp.com/
 
 ## Resources
 **Python version:** 3.8
@@ -92,7 +92,7 @@ The LightGBM model achieved an MAE of $0.42 million (about 15% of the mean price
 
 * Created flask API endpoint to estimate a price based on input features
 * Wrote a full stack web application in HTML, CSS, and JavaScript which takes in user input, calls the flask API, and displays the predicted price
-* Hosted the web application on Heroku: https://sb-house-price-estimator.herokuapp.com/
+* Hosted the web application on Heroku: https://sb-house-price-prediction.herokuapp.com/
 
 ## Fture work
 * This dataset was relatively limited in terms of sample size and number of features:
