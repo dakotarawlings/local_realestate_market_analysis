@@ -1,6 +1,8 @@
 
 """
 Scraper for housing information on trulia using beautiful soup
+
+This file can be imported as a python module
 The main callable function is defined at the bottom:
     
 web_scraoer(trulia_link: str, number_pages: int)-> df
@@ -34,10 +36,13 @@ user_agent_list=['Chrome/61.0.3163.100 Safari/537.36','AppleWebKit/537.36 (KHTML
 
 # Get list of links for each house listing
 def get_house_links(base_link, num_pages): 
-    
-    #takes in an http link for a search on trulia.com search 
-    #and number of pages and retrieves the 
-    
+    """Function to retrieve the links for each house listing given a "base url" for a particular search
+
+    :type base_link: str - link for a particular search on trulia.com
+    :type num_pages: int - The number of pages retrieved by the search
+    :rtype: List[str] - list of links for each realestate listing retrieved by the search
+    """
+
     global req_headers
     link_list=[]
     
@@ -87,7 +92,12 @@ def get_house_links(base_link, num_pages):
 
 #Retrieve data from a list of trulia links and add to data frame    
 def extract_link_data(link_list): 
-#Takes in list of links for trulia house listings and trurns dataframe of data for all links
+    """Function to take in list of links for trulia house listings and return dataframe of data for all links
+
+    :type link_list: str - list of links for each realestate listing retrieved by the search
+    :rtype: obj (pandas df) - Data from trulia links
+    """
+
     global req_headers
     
     price_list=[]
@@ -167,7 +177,11 @@ def extract_link_data(link_list):
 #Each function takes in a soup object created using beautiful soup and return a value
 
 def get_price(soup):
-    # Takes in soup object and returns price as int
+    """
+    :type soup: obj - beautiful soup object for a house listing on trulia
+    :rtype: int - House price
+    """
+    
     try:
         price=float([item.text for item in soup.find_all() if "data-testid" in item.attrs and item["data-testid"]=='home-details-price-detail'][0].replace('$','').replace(',',''))    
         return price
@@ -175,14 +189,22 @@ def get_price(soup):
         return np.nan
 
 def get_address(soup):
-    #Takes in soup object and returns address as a string
+    """
+    :type soup: obj - beautiful soup object for a house listing on trulia
+    :rtype: str - Address for a house listing
+    """
+
     try:
         address=str([item.text for item in soup.find_all() if "data-testid" in item.attrs and item["data-testid"]=='home-details-summary-address'][0])    
         return address
     except:
         return 'None'
 def get_zip(soup):
-    #Takes in soup object and returns zipcode as a string
+    """
+    :type soup: obj - beautiful soup object for a house listing on trulia
+    :rtype: str - zipcode for a house
+    """
+
     try:
         zip=str([item.text for item in soup.find_all() if "data-testid" in item.attrs and item["data-testid"]=='home-details-summary-city-state'][0])    
         return (re.sub('\D','',zip))
@@ -190,7 +212,11 @@ def get_zip(soup):
         return 'None'
     
 def get_beds(soup):
-    #Takes in soup object and returns the number of bedrooms as an int
+    """
+    :type soup: obj - beautiful soup object for a house listing on trulia
+    :rtype: int - number of bedrooms
+    """
+
     try:
         num_beds=float(([item.text for item in soup.find_all() if "data-testid" in item.attrs and item["data-testid"]=='home-summary-size-bedrooms'][0]).lower().replace('beds',''))  
         return num_beds
@@ -198,7 +224,11 @@ def get_beds(soup):
         return np.nan
 
 def get_baths(soup):
-    #Takes in soup object and returns the number of bathrooms as an int
+    """
+    :type soup: obj - beautiful soup object for a house listing on trulia
+    :rtype: int - number of bathrooms
+    """
+
     try:
         num_baths=float(([item.text for item in soup.find_all() if "data-testid" in item.attrs and item["data-testid"]=='home-summary-size-bathrooms'][0]).lower().replace('baths',''))
         return num_baths
@@ -206,7 +236,11 @@ def get_baths(soup):
         return np.nan
     
 def get_year_built(soup):
-    #Takes in soup object and returns the year built as an int
+    """
+    :type soup: obj - beautiful soup object for a house listing on trulia
+    :rtype: int - year the house was built
+    """
+
     try:
         table_text=[item.text for item in soup.find_all() if "data-testid" in item.attrs and item["data-testid"]=='structured-amenities-table-category']
         for item in table_text:
@@ -226,7 +260,11 @@ def get_year_built(soup):
         return np.nan
     
 def get_lot_area(soup):
-    #Takes in soup object and returns lot area in acres as an int
+    """
+    :type soup: obj - beautiful soup object for a house listing on trulia
+    :rtype: int - lot area for a listing (acres)
+    """
+
     try:
         table_text=[item.text for item in soup.find_all() if "data-testid" in item.attrs and item["data-testid"]=='structured-amenities-table-category']
         for item in table_text:  
@@ -245,7 +283,11 @@ def get_lot_area(soup):
         return np.nan   
     
 def get_lot_area_alt(soup):
-    #Takes in soup object and returns the lot size in acres as an int (alternative to lot_area)
+    """ Searches a different location in the HTML for the lot area (compared to the function above)
+    :type soup: obj - beautiful soup object for a house listing on trulia
+    :rtype: int - lot area for a listing (acres)
+    """
+
     try:
         lot_size=([item.text for item in soup.find_all() if "data-testid" in item.attrs and item["data-testid"]=='home-summary-size-lotsize'][0].replace('(','').replace(')','').replace('on','').replace('acre','').replace('s',''))    
         return float(lot_size)
@@ -255,7 +297,11 @@ def get_lot_area_alt(soup):
 
 
 def get_building_area(soup):
-    #Takes in soup object and returns the building area in sq feet as an int
+    """ 
+    :type soup: obj - beautiful soup object for a house listing on trulia
+    :rtype: int - building area (sq feet)
+    """
+
     try:
         table_text=[item.text for item in soup.find_all() if "data-testid" in item.attrs and item["data-testid"]=='structured-amenities-table-category']
         for item in table_text:
@@ -268,7 +314,10 @@ def get_building_area(soup):
         return np.nan
         
 def get_living_area(soup):
-    #takes in soup object and returns the living area in sq feet as an int (alternative to building area)
+    """ Searches a different location in the HTML for the building area/living area (compared to the function above)
+    :type soup: obj - beautiful soup object for a house listing on trulia
+    :rtype: int - building area (sq feet)
+    """
 
     try:
         table_text=[item.text for item in soup.find_all() if "data-testid" in item.attrs and item["data-testid"]=='structured-amenities-table-category']
@@ -286,8 +335,11 @@ def get_living_area(soup):
   
 #the function below is the main trulia web scraper function
 def web_scraper(base_link, num_pages):
-    #takes in the link for a trulia search and the number of pages of search 
-    #results and returns a dataframe
+    """ Main callable function 
+    :type base_link: str - Link for a trulia.com search
+    :type num_pages: int - The number of pages retirieved by the search (pages of listings that the user wants to scrape)
+    :rtype: obj (pandas dataframe) - dataframe of house listing data from a trulia search
+    """
     
     link_list=get_house_links(base_link, num_pages)
     dataframe=extract_link_data(link_list)
