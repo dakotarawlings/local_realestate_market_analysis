@@ -55,11 +55,16 @@ Used data visualization and basic summary statistics to analyze the distribution
 <p float="left" align="center">
   <img src="readme_pictures/heatmap.png" height="300" />
   <img src="readme_pictures/boxplots.png" height="300" /> 
-  <img src="readme_pictures/wordcloud.png" height="300" />
+
 </p>
 
 <p align="center">
 <img src="readme_pictures/boxplot2.png" width="900">
+</p>
+
+<p float="left" align="center">
+  <img src="readme_pictures/mutual.png" height="300" /> 
+  <img src="readme_pictures/wordcloud.png" height="300" />
 </p>
   
   
