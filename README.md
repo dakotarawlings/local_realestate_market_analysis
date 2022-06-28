@@ -43,6 +43,7 @@
 * Used a KNN regressor to impute missing values 
 * Rescaled several variables to ensure that most features were on a similar scale
 * Normalized the distribution of several variables with skewed distributions
+* Note: a more rigorous scaling technique could have been useful here, however, we are primarily testng tree-based models here, feature scaling (and normalization) are not completely necessary 
 
 ## Exploratory Data Analysis
 Used data visualization and basic summary statistics to analyze the distribution of variables, correlation between variables, outliers, data range, etc.
