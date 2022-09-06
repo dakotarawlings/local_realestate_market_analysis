@@ -4,7 +4,7 @@
   <img src="readme_pictures/homepage.png" width="600" >
 </p>
 
-### Web App Link: http://ec2-54-151-126-133.us-west-1.compute.amazonaws.com/
+### Web App Link: https://sb-house-price-prediction.herokuapp.com/
 
 ## Overview
 * Built a web scraper from scratch to scrape data from ~1500 single family homes that have been sold over the past 2 years in Santa Barbara from trulia.com
